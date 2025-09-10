@@ -28,7 +28,11 @@ def contar_letras(palabra, letra, i=0):
         return 1 + contar_letras(palabra, letra, i + 1)
     else:
         return contar_letras(palabra, letra, i + 1)
-
+def invertir_cadena(cadena):
+    if len(cadena) == 0:
+        return ""
+    else:
+        return invertir_cadena(cadena[1:]) + cadena[0]
 while True:
     print("1- Calcular el factorial de un numero")
     print("2- SUma de los primeros N numeros naturales")
@@ -56,3 +60,7 @@ while True:
             else:
                 cantidad = contar_letras(palabra, letra)
                 print(f"La letra '{letra}' aparece {cantidad} veces en '{palabra}'")
+        case "5":
+            cadena = input("Ingrese una cadena de texto: ")
+            resultado = invertir_cadena(cadena)
+            print(f"La cadena invertida es: {resultado}")
