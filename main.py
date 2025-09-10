@@ -21,7 +21,13 @@ def fibonacci(o):
         return 1
     else:
         return fibonacci(o-1) + fibonacci(o-2)
-
+def contar_letras(palabra, letra, i=0):
+    if i == len(palabra):
+        return 0
+    if palabra[i] == letra:
+        return 1 + contar_letras(palabra, letra, i + 1)
+    else:
+        return contar_letras(palabra, letra, i + 1)
 
 while True:
     print("1- Calcular el factorial de un numero")
@@ -42,4 +48,11 @@ while True:
         case "3":
             numero = int(input("Ingrese un numero: "))
             print(f"El numero de fibonacci es: {fibonacci(numero)}")
-
+        case "4":
+            palabra = input("Ingrese una palabra: ").lower()
+            letra = input("Ingrese la letra a buscar: ").lower()
+            if len(letra) != 1 or not letra.isalpha():
+                print("Error: Debe ingresar exactamente una letra.")
+            else:
+                cantidad = contar_letras(palabra, letra)
+                print(f"La letra '{letra}' aparece {cantidad} veces en '{palabra}'")
