@@ -1,7 +1,7 @@
 def factorial(n):
     if n<0:
         return "No es un numero natural"
-    elif n == 0 or n == 1:   # Caso base
+    elif n == 0 or n == 1:
         return 1
     else:
         return n * factorial(n - 1)
@@ -33,6 +33,13 @@ def invertir_cadena(cadena):
         return ""
     else:
         return invertir_cadena(cadena[1:]) + cadena[0]
+def potencia(base, exponente):
+    if exponente == 0:
+        return 1
+    elif exponente < 0:
+        return 1 / potencia(base, -exponente)
+    else:
+        return base * potencia(base, exponente - 1)
 while True:
     print("1- Calcular el factorial de un numero")
     print("2- SUma de los primeros N numeros naturales")
@@ -64,3 +71,15 @@ while True:
             cadena = input("Ingrese una cadena de texto: ")
             resultado = invertir_cadena(cadena)
             print(f"La cadena invertida es: {resultado}")
+        case "6":
+            base = float(input("Ingrese la base: "))
+            exponente = int(input("Ingrese el exponente: "))
+            resultado = potencia(base, exponente)
+            print(f"{base} elevado a {exponente} = {resultado}")
+        case "7":
+            print("Gracias por usar el programa, estoy aprendiendo recursividad :)")
+            print("BYEEEEEE")
+            break
+        case _:
+            print("Opcion no valida, intente de nuevo")
+
